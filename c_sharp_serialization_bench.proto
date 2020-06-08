@@ -1,0 +1,95 @@
+syntax = "proto2";
+
+package common;
+
+message NodeMeta {
+    map<string, string> general = 1;
+}
+
+message NodeBase {
+    required bool hidden = 1;
+    required string id = 2;     // Example: 34b2e27
+    required string name = 3;
+    optional NodeMeta meta = 4;
+}
+
+message NodeGroup {
+    required NodeBase base = 1;
+    repeated Node children = 2;
+}
+
+message NodeValue {
+    required NodeBase base = 1;
+    repeated NodeVar value = 2;
+}
+
+message Node {
+    oneof node {
+        NodeGroup group = 1;
+        NodeVar var = 2;
+    }
+}
+
+message NodeVarString {
+    required string val = 1;
+}
+
+message NodeVarInt {
+    required int32 val = 1;
+}
+
+message NodeVarLong {
+    required int32 val = 1;
+}
+
+message NodeVarDouble {
+    required double val = 1;
+}
+
+message NodeVarBool {
+    required bool val = 1;
+}
+
+message NodeVarDateTime {
+    required uint32 val = 1;
+}
+
+message BinaryInfo {
+    required uint64 id = 1;
+    required uint32 ver = 2;
+    required string loc = 3;
+    required string name = 4;
+    required bytes sha256 = 5; // 32 bytes should be
+    required bool delayedDownload = 6;
+}
+
+message NodeVarBinary {
+    required BinaryInfo val = 1;
+}
+
+
+message FlowID {
+    required uint64 id = 1;
+    required int64 app = 2;
+}
+
+message NodeVarFlow {
+    required FlowID val = 1;
+}
+
+message NodeVar {
+    oneof var {
+        NodeVarInt ni = 2;
+        NodeVarLong nl = 3;
+        NodeVarDouble nd = 4;
+        NodeVarBool nb = 5;
+        NodeVarString ns = 1;
+        NodeVarDateTime ndt = 6;
+
+        // Extended types
+        NodeVarBinary nbin = 7;
+        NodeVarFlow nf = 8;
+    }
+}
+
+
