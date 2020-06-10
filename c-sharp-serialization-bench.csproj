@@ -11,6 +11,7 @@
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />
     <PackageReference Include="MessagePack" Version="2.1.115" />
     <PackageReference Include="mongocsharpdriver" Version="2.10.4" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.4" />
   </ItemGroup>
 
 </Project>

@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Common {
+namespace Codecs.Proto {
 
   /// <summary>Holder for reflection information generated from c_sharp_serialization_bench.proto</summary>
   public static partial class CSharpSerializationBenchReflection {
@@ -24,67 +24,42 @@ namespace Common {
     static CSharpSerializationBenchReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "CiFjX3NoYXJwX3NlcmlhbGl6YXRpb25fYmVuY2gucHJvdG8SBmNvbW1vbiJq",
-            "CghOb2RlTWV0YRIuCgdnZW5lcmFsGAEgAygLMh0uY29tbW9uLk5vZGVNZXRh",
-            "LkdlbmVyYWxFbnRyeRouCgxHZW5lcmFsRW50cnkSCwoDa2V5GAEgASgJEg0K",
-            "BXZhbHVlGAIgASgJOgI4ASJUCghOb2RlQmFzZRIOCgZoaWRkZW4YASACKAgS",
-            "CgoCaWQYAiACKAkSDAoEbmFtZRgDIAIoCRIeCgRtZXRhGAQgASgLMhAuY29t",
-            "bW9uLk5vZGVNZXRhIksKCU5vZGVHcm91cBIeCgRiYXNlGAEgAigLMhAuY29t",
-            "bW9uLk5vZGVCYXNlEh4KCGNoaWxkcmVuGAIgAygLMgwuY29tbW9uLk5vZGUi",
-            "SwoJTm9kZVZhbHVlEh4KBGJhc2UYASACKAsyEC5jb21tb24uTm9kZUJhc2US",
-            "HgoFdmFsdWUYAiADKAsyDy5jb21tb24uTm9kZVZhciJSCgROb2RlEiIKBWdy",
-            "b3VwGAEgASgLMhEuY29tbW9uLk5vZGVHcm91cEgAEh4KA3ZhchgCIAEoCzIP",
-            "LmNvbW1vbi5Ob2RlVmFySABCBgoEbm9kZSIcCg1Ob2RlVmFyU3RyaW5nEgsK",
-            "A3ZhbBgBIAIoCSIZCgpOb2RlVmFySW50EgsKA3ZhbBgBIAIoBSIaCgtOb2Rl",
-            "VmFyTG9uZxILCgN2YWwYASACKAUiHAoNTm9kZVZhckRvdWJsZRILCgN2YWwY",
-            "ASACKAEiGgoLTm9kZVZhckJvb2wSCwoDdmFsGAEgAigIIh4KD05vZGVWYXJE",
-            "YXRlVGltZRILCgN2YWwYASACKA0iaQoKQmluYXJ5SW5mbxIKCgJpZBgBIAIo",
-            "BBILCgN2ZXIYAiACKA0SCwoDbG9jGAMgAigJEgwKBG5hbWUYBCACKAkSDgoG",
-            "c2hhMjU2GAUgAigMEhcKD2RlbGF5ZWREb3dubG9hZBgGIAIoCCIwCg1Ob2Rl",
-            "VmFyQmluYXJ5Eh8KA3ZhbBgBIAIoCzISLmNvbW1vbi5CaW5hcnlJbmZvIiEK",
-            "BkZsb3dJRBIKCgJpZBgBIAIoBBILCgNhcHAYAiACKAMiKgoLTm9kZVZhckZs",
-            "b3cSGwoDdmFsGAEgAigLMg4uY29tbW9uLkZsb3dJRCK0AgoHTm9kZVZhchIg",
-            "CgJuaRgCIAEoCzISLmNvbW1vbi5Ob2RlVmFySW50SAASIQoCbmwYAyABKAsy",
-            "Ey5jb21tb24uTm9kZVZhckxvbmdIABIjCgJuZBgEIAEoCzIVLmNvbW1vbi5O",
-            "b2RlVmFyRG91YmxlSAASIQoCbmIYBSABKAsyEy5jb21tb24uTm9kZVZhckJv",
-            "b2xIABIjCgJucxgBIAEoCzIVLmNvbW1vbi5Ob2RlVmFyU3RyaW5nSAASJgoD",
-            "bmR0GAYgASgLMhcuY29tbW9uLk5vZGVWYXJEYXRlVGltZUgAEiUKBG5iaW4Y",
-            "ByABKAsyFS5jb21tb24uTm9kZVZhckJpbmFyeUgAEiEKAm5mGAggASgLMhMu",
-            "Y29tbW9uLk5vZGVWYXJGbG93SABCBQoDdmFy"));
+            "CiFjX3NoYXJwX3NlcmlhbGl6YXRpb25fYmVuY2gucHJvdG8SDGNvZGVjcy5w",
+            "cm90byJ1CglOb2RlTWV0YVASNwoIbWV0YUluZm8YASADKAsyJS5jb2RlY3Mu",
+            "cHJvdG8uTm9kZU1ldGFQLk1ldGFJbmZvRW50cnkaLwoNTWV0YUluZm9FbnRy",
+            "eRILCgNrZXkYASABKAkSDQoFdmFsdWUYAiABKAk6AjgBIlwKCU5vZGVCYXNl",
+            "UBIOCgZoaWRkZW4YASACKAgSCgoCaWQYAiACKAkSDAoEbmFtZRgDIAIoCRIl",
+            "CgRtZXRhGAQgASgLMhcuY29kZWNzLnByb3RvLk5vZGVNZXRhUCJaCgpOb2Rl",
+            "R3JvdXBQEiUKBGJhc2UYASACKAsyFy5jb2RlY3MucHJvdG8uTm9kZUJhc2VQ",
+            "EiUKCGNoaWxkcmVuGAIgAygLMhMuY29kZWNzLnByb3RvLk5vZGVQIl0KBU5v",
+            "ZGVQEiMKBG52YXIYASABKAsyEy5jb2RlY3MucHJvdG8uTlZhclBIABInCgZu",
+            "Z3JvdXAYAiABKAsyFS5jb2RlY3MucHJvdG8uTkdyb3VwUEgAQgYKBG5vZGUi",
+            "FgoFTlZhclASDQoFdmFsdWUYASACKAEiMgoHTkdyb3VwUBInCgVncm91cBgB",
+            "IAIoCzIYLmNvZGVjcy5wcm90by5Ob2RlR3JvdXBQ"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeMeta), global::Common.NodeMeta.Parser, new[]{ "General" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeBase), global::Common.NodeBase.Parser, new[]{ "Hidden", "Id", "Name", "Meta" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeGroup), global::Common.NodeGroup.Parser, new[]{ "Base", "Children" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeValue), global::Common.NodeValue.Parser, new[]{ "Base", "Value" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.Node), global::Common.Node.Parser, new[]{ "Group", "Var" }, new[]{ "Node" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarString), global::Common.NodeVarString.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarInt), global::Common.NodeVarInt.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarLong), global::Common.NodeVarLong.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarDouble), global::Common.NodeVarDouble.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarBool), global::Common.NodeVarBool.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarDateTime), global::Common.NodeVarDateTime.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.BinaryInfo), global::Common.BinaryInfo.Parser, new[]{ "Id", "Ver", "Loc", "Name", "Sha256", "DelayedDownload" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarBinary), global::Common.NodeVarBinary.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.FlowID), global::Common.FlowID.Parser, new[]{ "Id", "App" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVarFlow), global::Common.NodeVarFlow.Parser, new[]{ "Val" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Common.NodeVar), global::Common.NodeVar.Parser, new[]{ "Ni", "Nl", "Nd", "Nb", "Ns", "Ndt", "Nbin", "Nf" }, new[]{ "Var" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NodeMetaP), global::Codecs.Proto.NodeMetaP.Parser, new[]{ "MetaInfo" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NodeBaseP), global::Codecs.Proto.NodeBaseP.Parser, new[]{ "Hidden", "Id", "Name", "Meta" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NodeGroupP), global::Codecs.Proto.NodeGroupP.Parser, new[]{ "Base", "Children" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NodeP), global::Codecs.Proto.NodeP.Parser, new[]{ "Nvar", "Ngroup" }, new[]{ "Node" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NVarP), global::Codecs.Proto.NVarP.Parser, new[]{ "Value" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Codecs.Proto.NGroupP), global::Codecs.Proto.NGroupP.Parser, new[]{ "Group" }, null, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class NodeMeta : pb::IMessage<NodeMeta> {
-    private static readonly pb::MessageParser<NodeMeta> _parser = new pb::MessageParser<NodeMeta>(() => new NodeMeta());
+  public sealed partial class NodeMetaP : pb::IMessage<NodeMetaP> {
+    private static readonly pb::MessageParser<NodeMetaP> _parser = new pb::MessageParser<NodeMetaP>(() => new NodeMetaP());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeMeta> Parser { get { return _parser; } }
+    public static pb::MessageParser<NodeMetaP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -93,54 +68,54 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeMeta() {
+    public NodeMetaP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeMeta(NodeMeta other) : this() {
-      general_ = other.general_.Clone();
+    public NodeMetaP(NodeMetaP other) : this() {
+      metaInfo_ = other.metaInfo_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeMeta Clone() {
-      return new NodeMeta(this);
+    public NodeMetaP Clone() {
+      return new NodeMetaP(this);
     }
 
-    /// <summary>Field number for the "general" field.</summary>
-    public const int GeneralFieldNumber = 1;
-    private static readonly pbc::MapField<string, string>.Codec _map_general_codec
+    /// <summary>Field number for the "metaInfo" field.</summary>
+    public const int MetaInfoFieldNumber = 1;
+    private static readonly pbc::MapField<string, string>.Codec _map_metaInfo_codec
         = new pbc::MapField<string, string>.Codec(pb::FieldCodec.ForString(10, ""), pb::FieldCodec.ForString(18, ""), 10);
-    private readonly pbc::MapField<string, string> general_ = new pbc::MapField<string, string>();
+    private readonly pbc::MapField<string, string> metaInfo_ = new pbc::MapField<string, string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::MapField<string, string> General {
-      get { return general_; }
+    public pbc::MapField<string, string> MetaInfo {
+      get { return metaInfo_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as NodeMeta);
+      return Equals(other as NodeMetaP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeMeta other) {
+    public bool Equals(NodeMetaP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!General.Equals(other.General)) return false;
+      if (!MetaInfo.Equals(other.MetaInfo)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= General.GetHashCode();
+      hash ^= MetaInfo.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -154,7 +129,7 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      general_.WriteTo(output, _map_general_codec);
+      metaInfo_.WriteTo(output, _map_metaInfo_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -163,7 +138,7 @@ namespace Common {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      size += general_.CalculateSize(_map_general_codec);
+      size += metaInfo_.CalculateSize(_map_metaInfo_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -171,11 +146,11 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeMeta other) {
+    public void MergeFrom(NodeMetaP other) {
       if (other == null) {
         return;
       }
-      general_.Add(other.general_);
+      metaInfo_.Add(other.metaInfo_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -188,7 +163,7 @@ namespace Common {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            general_.AddEntriesFrom(input, _map_general_codec);
+            metaInfo_.AddEntriesFrom(input, _map_metaInfo_codec);
             break;
           }
         }
@@ -197,16 +172,16 @@ namespace Common {
 
   }
 
-  public sealed partial class NodeBase : pb::IMessage<NodeBase> {
-    private static readonly pb::MessageParser<NodeBase> _parser = new pb::MessageParser<NodeBase>(() => new NodeBase());
+  public sealed partial class NodeBaseP : pb::IMessage<NodeBaseP> {
+    private static readonly pb::MessageParser<NodeBaseP> _parser = new pb::MessageParser<NodeBaseP>(() => new NodeBaseP());
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeBase> Parser { get { return _parser; } }
+    public static pb::MessageParser<NodeBaseP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -215,14 +190,14 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeBase() {
+    public NodeBaseP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeBase(NodeBase other) : this() {
+    public NodeBaseP(NodeBaseP other) : this() {
       _hasBits0 = other._hasBits0;
       hidden_ = other.hidden_;
       id_ = other.id_;
@@ -232,8 +207,8 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeBase Clone() {
-      return new NodeBase(this);
+    public NodeBaseP Clone() {
+      return new NodeBaseP(this);
     }
 
     /// <summary>Field number for the "hidden" field.</summary>
@@ -265,9 +240,6 @@ namespace Common {
     private readonly static string IdDefaultValue = "";
 
     private string id_;
-    /// <summary>
-    /// Example: 34b2e27
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Id {
       get { return id_ ?? IdDefaultValue; }
@@ -311,9 +283,9 @@ namespace Common {
 
     /// <summary>Field number for the "meta" field.</summary>
     public const int MetaFieldNumber = 4;
-    private global::Common.NodeMeta meta_;
+    private global::Codecs.Proto.NodeMetaP meta_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeMeta Meta {
+    public global::Codecs.Proto.NodeMetaP Meta {
       get { return meta_; }
       set {
         meta_ = value;
@@ -322,11 +294,11 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as NodeBase);
+      return Equals(other as NodeBaseP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeBase other) {
+    public bool Equals(NodeBaseP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -403,7 +375,7 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeBase other) {
+    public void MergeFrom(NodeBaseP other) {
       if (other == null) {
         return;
       }
@@ -418,7 +390,7 @@ namespace Common {
       }
       if (other.meta_ != null) {
         if (meta_ == null) {
-          Meta = new global::Common.NodeMeta();
+          Meta = new global::Codecs.Proto.NodeMetaP();
         }
         Meta.MergeFrom(other.Meta);
       }
@@ -447,7 +419,7 @@ namespace Common {
           }
           case 34: {
             if (meta_ == null) {
-              Meta = new global::Common.NodeMeta();
+              Meta = new global::Codecs.Proto.NodeMetaP();
             }
             input.ReadMessage(Meta);
             break;
@@ -458,15 +430,15 @@ namespace Common {
 
   }
 
-  public sealed partial class NodeGroup : pb::IMessage<NodeGroup> {
-    private static readonly pb::MessageParser<NodeGroup> _parser = new pb::MessageParser<NodeGroup>(() => new NodeGroup());
+  public sealed partial class NodeGroupP : pb::IMessage<NodeGroupP> {
+    private static readonly pb::MessageParser<NodeGroupP> _parser = new pb::MessageParser<NodeGroupP>(() => new NodeGroupP());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeGroup> Parser { get { return _parser; } }
+    public static pb::MessageParser<NodeGroupP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -475,29 +447,29 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeGroup() {
+    public NodeGroupP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeGroup(NodeGroup other) : this() {
+    public NodeGroupP(NodeGroupP other) : this() {
       base_ = other.base_ != null ? other.base_.Clone() : null;
       children_ = other.children_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeGroup Clone() {
-      return new NodeGroup(this);
+    public NodeGroupP Clone() {
+      return new NodeGroupP(this);
     }
 
     /// <summary>Field number for the "base" field.</summary>
     public const int BaseFieldNumber = 1;
-    private global::Common.NodeBase base_;
+    private global::Codecs.Proto.NodeBaseP base_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeBase Base {
+    public global::Codecs.Proto.NodeBaseP Base {
       get { return base_; }
       set {
         base_ = value;
@@ -506,21 +478,21 @@ namespace Common {
 
     /// <summary>Field number for the "children" field.</summary>
     public const int ChildrenFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Common.Node> _repeated_children_codec
-        = pb::FieldCodec.ForMessage(18, global::Common.Node.Parser);
-    private readonly pbc::RepeatedField<global::Common.Node> children_ = new pbc::RepeatedField<global::Common.Node>();
+    private static readonly pb::FieldCodec<global::Codecs.Proto.NodeP> _repeated_children_codec
+        = pb::FieldCodec.ForMessage(18, global::Codecs.Proto.NodeP.Parser);
+    private readonly pbc::RepeatedField<global::Codecs.Proto.NodeP> children_ = new pbc::RepeatedField<global::Codecs.Proto.NodeP>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Common.Node> Children {
+    public pbc::RepeatedField<global::Codecs.Proto.NodeP> Children {
       get { return children_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as NodeGroup);
+      return Equals(other as NodeGroupP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeGroup other) {
+    public bool Equals(NodeGroupP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -574,13 +546,13 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeGroup other) {
+    public void MergeFrom(NodeGroupP other) {
       if (other == null) {
         return;
       }
       if (other.base_ != null) {
         if (base_ == null) {
-          Base = new global::Common.NodeBase();
+          Base = new global::Codecs.Proto.NodeBaseP();
         }
         Base.MergeFrom(other.Base);
       }
@@ -598,7 +570,7 @@ namespace Common {
             break;
           case 10: {
             if (base_ == null) {
-              Base = new global::Common.NodeBase();
+              Base = new global::Codecs.Proto.NodeBaseP();
             }
             input.ReadMessage(Base);
             break;
@@ -613,15 +585,15 @@ namespace Common {
 
   }
 
-  public sealed partial class NodeValue : pb::IMessage<NodeValue> {
-    private static readonly pb::MessageParser<NodeValue> _parser = new pb::MessageParser<NodeValue>(() => new NodeValue());
+  public sealed partial class NodeP : pb::IMessage<NodeP> {
+    private static readonly pb::MessageParser<NodeP> _parser = new pb::MessageParser<NodeP>(() => new NodeP());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeValue> Parser { get { return _parser; } }
+    public static pb::MessageParser<NodeP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -630,175 +602,20 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeValue() {
+    public NodeP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeValue(NodeValue other) : this() {
-      base_ = other.base_ != null ? other.base_.Clone() : null;
-      value_ = other.value_.Clone();
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeValue Clone() {
-      return new NodeValue(this);
-    }
-
-    /// <summary>Field number for the "base" field.</summary>
-    public const int BaseFieldNumber = 1;
-    private global::Common.NodeBase base_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeBase Base {
-      get { return base_; }
-      set {
-        base_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "value" field.</summary>
-    public const int ValueFieldNumber = 2;
-    private static readonly pb::FieldCodec<global::Common.NodeVar> _repeated_value_codec
-        = pb::FieldCodec.ForMessage(18, global::Common.NodeVar.Parser);
-    private readonly pbc::RepeatedField<global::Common.NodeVar> value_ = new pbc::RepeatedField<global::Common.NodeVar>();
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<global::Common.NodeVar> Value {
-      get { return value_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeValue);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeValue other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Base, other.Base)) return false;
-      if(!value_.Equals(other.value_)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (base_ != null) hash ^= Base.GetHashCode();
-      hash ^= value_.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (base_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Base);
-      }
-      value_.WriteTo(output, _repeated_value_codec);
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (base_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Base);
-      }
-      size += value_.CalculateSize(_repeated_value_codec);
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeValue other) {
-      if (other == null) {
-        return;
-      }
-      if (other.base_ != null) {
-        if (base_ == null) {
-          Base = new global::Common.NodeBase();
-        }
-        Base.MergeFrom(other.Base);
-      }
-      value_.Add(other.value_);
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (base_ == null) {
-              Base = new global::Common.NodeBase();
-            }
-            input.ReadMessage(Base);
-            break;
-          }
-          case 18: {
-            value_.AddEntriesFrom(input, _repeated_value_codec);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class Node : pb::IMessage<Node> {
-    private static readonly pb::MessageParser<Node> _parser = new pb::MessageParser<Node>(() => new Node());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<Node> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[4]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Node() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Node(Node other) : this() {
+    public NodeP(NodeP other) : this() {
       switch (other.NodeCase) {
-        case NodeOneofCase.Group:
-          Group = other.Group.Clone();
+        case NodeOneofCase.Nvar:
+          Nvar = other.Nvar.Clone();
           break;
-        case NodeOneofCase.Var:
-          Var = other.Var.Clone();
+        case NodeOneofCase.Ngroup:
+          Ngroup = other.Ngroup.Clone();
           break;
       }
 
@@ -806,29 +623,29 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public Node Clone() {
-      return new Node(this);
+    public NodeP Clone() {
+      return new NodeP(this);
     }
 
-    /// <summary>Field number for the "group" field.</summary>
-    public const int GroupFieldNumber = 1;
+    /// <summary>Field number for the "nvar" field.</summary>
+    public const int NvarFieldNumber = 1;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeGroup Group {
-      get { return nodeCase_ == NodeOneofCase.Group ? (global::Common.NodeGroup) node_ : null; }
+    public global::Codecs.Proto.NVarP Nvar {
+      get { return nodeCase_ == NodeOneofCase.Nvar ? (global::Codecs.Proto.NVarP) node_ : null; }
       set {
         node_ = value;
-        nodeCase_ = value == null ? NodeOneofCase.None : NodeOneofCase.Group;
+        nodeCase_ = value == null ? NodeOneofCase.None : NodeOneofCase.Nvar;
       }
     }
 
-    /// <summary>Field number for the "var" field.</summary>
-    public const int VarFieldNumber = 2;
+    /// <summary>Field number for the "ngroup" field.</summary>
+    public const int NgroupFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVar Var {
-      get { return nodeCase_ == NodeOneofCase.Var ? (global::Common.NodeVar) node_ : null; }
+    public global::Codecs.Proto.NGroupP Ngroup {
+      get { return nodeCase_ == NodeOneofCase.Ngroup ? (global::Codecs.Proto.NGroupP) node_ : null; }
       set {
         node_ = value;
-        nodeCase_ = value == null ? NodeOneofCase.None : NodeOneofCase.Var;
+        nodeCase_ = value == null ? NodeOneofCase.None : NodeOneofCase.Ngroup;
       }
     }
 
@@ -836,8 +653,8 @@ namespace Common {
     /// <summary>Enum of possible cases for the "node" oneof.</summary>
     public enum NodeOneofCase {
       None = 0,
-      Group = 1,
-      Var = 2,
+      Nvar = 1,
+      Ngroup = 2,
     }
     private NodeOneofCase nodeCase_ = NodeOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -853,19 +670,19 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as Node);
+      return Equals(other as NodeP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(Node other) {
+    public bool Equals(NodeP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Group, other.Group)) return false;
-      if (!object.Equals(Var, other.Var)) return false;
+      if (!object.Equals(Nvar, other.Nvar)) return false;
+      if (!object.Equals(Ngroup, other.Ngroup)) return false;
       if (NodeCase != other.NodeCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -873,8 +690,8 @@ namespace Common {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (nodeCase_ == NodeOneofCase.Group) hash ^= Group.GetHashCode();
-      if (nodeCase_ == NodeOneofCase.Var) hash ^= Var.GetHashCode();
+      if (nodeCase_ == NodeOneofCase.Nvar) hash ^= Nvar.GetHashCode();
+      if (nodeCase_ == NodeOneofCase.Ngroup) hash ^= Ngroup.GetHashCode();
       hash ^= (int) nodeCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -889,13 +706,13 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (nodeCase_ == NodeOneofCase.Group) {
+      if (nodeCase_ == NodeOneofCase.Nvar) {
         output.WriteRawTag(10);
-        output.WriteMessage(Group);
+        output.WriteMessage(Nvar);
       }
-      if (nodeCase_ == NodeOneofCase.Var) {
+      if (nodeCase_ == NodeOneofCase.Ngroup) {
         output.WriteRawTag(18);
-        output.WriteMessage(Var);
+        output.WriteMessage(Ngroup);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -905,11 +722,11 @@ namespace Common {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (nodeCase_ == NodeOneofCase.Group) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Group);
+      if (nodeCase_ == NodeOneofCase.Nvar) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nvar);
       }
-      if (nodeCase_ == NodeOneofCase.Var) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Var);
+      if (nodeCase_ == NodeOneofCase.Ngroup) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ngroup);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -918,22 +735,22 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(Node other) {
+    public void MergeFrom(NodeP other) {
       if (other == null) {
         return;
       }
       switch (other.NodeCase) {
-        case NodeOneofCase.Group:
-          if (Group == null) {
-            Group = new global::Common.NodeGroup();
+        case NodeOneofCase.Nvar:
+          if (Nvar == null) {
+            Nvar = new global::Codecs.Proto.NVarP();
           }
-          Group.MergeFrom(other.Group);
+          Nvar.MergeFrom(other.Nvar);
           break;
-        case NodeOneofCase.Var:
-          if (Var == null) {
-            Var = new global::Common.NodeVar();
+        case NodeOneofCase.Ngroup:
+          if (Ngroup == null) {
+            Ngroup = new global::Codecs.Proto.NGroupP();
           }
-          Var.MergeFrom(other.Var);
+          Ngroup.MergeFrom(other.Ngroup);
           break;
       }
 
@@ -949,21 +766,21 @@ namespace Common {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            global::Common.NodeGroup subBuilder = new global::Common.NodeGroup();
-            if (nodeCase_ == NodeOneofCase.Group) {
-              subBuilder.MergeFrom(Group);
+            global::Codecs.Proto.NVarP subBuilder = new global::Codecs.Proto.NVarP();
+            if (nodeCase_ == NodeOneofCase.Nvar) {
+              subBuilder.MergeFrom(Nvar);
             }
             input.ReadMessage(subBuilder);
-            Group = subBuilder;
+            Nvar = subBuilder;
             break;
           }
           case 18: {
-            global::Common.NodeVar subBuilder = new global::Common.NodeVar();
-            if (nodeCase_ == NodeOneofCase.Var) {
-              subBuilder.MergeFrom(Var);
+            global::Codecs.Proto.NGroupP subBuilder = new global::Codecs.Proto.NGroupP();
+            if (nodeCase_ == NodeOneofCase.Ngroup) {
+              subBuilder.MergeFrom(Ngroup);
             }
             input.ReadMessage(subBuilder);
-            Var = subBuilder;
+            Ngroup = subBuilder;
             break;
           }
         }
@@ -972,157 +789,16 @@ namespace Common {
 
   }
 
-  public sealed partial class NodeVarString : pb::IMessage<NodeVarString> {
-    private static readonly pb::MessageParser<NodeVarString> _parser = new pb::MessageParser<NodeVarString>(() => new NodeVarString());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarString> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[5]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarString() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarString(NodeVarString other) : this() {
-      val_ = other.val_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarString Clone() {
-      return new NodeVarString(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static string ValDefaultValue = "";
-
-    private string val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Val {
-      get { return val_ ?? ValDefaultValue; }
-      set {
-        val_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "val" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
-      get { return val_ != null; }
-    }
-    /// <summary>Clears the value of the "val" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
-      val_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarString);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarString other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Val != other.Val) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasVal) hash ^= Val.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
-        output.WriteRawTag(10);
-        output.WriteString(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasVal) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Val);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarString other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasVal) {
-        Val = other.Val;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            Val = input.ReadString();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarInt : pb::IMessage<NodeVarInt> {
-    private static readonly pb::MessageParser<NodeVarInt> _parser = new pb::MessageParser<NodeVarInt>(() => new NodeVarInt());
+  public sealed partial class NVarP : pb::IMessage<NVarP> {
+    private static readonly pb::MessageParser<NVarP> _parser = new pb::MessageParser<NVarP>(() => new NVarP());
     private pb::UnknownFieldSet _unknownFields;
     private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarInt> Parser { get { return _parser; } }
+    public static pb::MessageParser<NVarP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1131,69 +807,69 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarInt() {
+    public NVarP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarInt(NodeVarInt other) : this() {
+    public NVarP(NVarP other) : this() {
       _hasBits0 = other._hasBits0;
-      val_ = other.val_;
+      value_ = other.value_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarInt Clone() {
-      return new NodeVarInt(this);
+    public NVarP Clone() {
+      return new NVarP(this);
     }
 
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static int ValDefaultValue = 0;
+    /// <summary>Field number for the "value" field.</summary>
+    public const int ValueFieldNumber = 1;
+    private readonly static double ValueDefaultValue = 0D;
 
-    private int val_;
+    private double value_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Val {
-      get { if ((_hasBits0 & 1) != 0) { return val_; } else { return ValDefaultValue; } }
+    public double Value {
+      get { if ((_hasBits0 & 1) != 0) { return value_; } else { return ValueDefaultValue; } }
       set {
         _hasBits0 |= 1;
-        val_ = value;
+        value_ = value;
       }
     }
-    /// <summary>Gets whether the "val" field is set</summary>
+    /// <summary>Gets whether the "value" field is set</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
+    public bool HasValue {
       get { return (_hasBits0 & 1) != 0; }
     }
-    /// <summary>Clears the value of the "val" field</summary>
+    /// <summary>Clears the value of the "value" field</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
+    public void ClearValue() {
       _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as NodeVarInt);
+      return Equals(other as NVarP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarInt other) {
+    public bool Equals(NVarP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Val != other.Val) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Value, other.Value)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasVal) hash ^= Val.GetHashCode();
+      if (HasValue) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Value);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1207,297 +883,9 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasVal) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Val);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarInt other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasVal) {
-        Val = other.Val;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Val = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarLong : pb::IMessage<NodeVarLong> {
-    private static readonly pb::MessageParser<NodeVarLong> _parser = new pb::MessageParser<NodeVarLong>(() => new NodeVarLong());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarLong> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[7]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarLong() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarLong(NodeVarLong other) : this() {
-      _hasBits0 = other._hasBits0;
-      val_ = other.val_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarLong Clone() {
-      return new NodeVarLong(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static int ValDefaultValue = 0;
-
-    private int val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int Val {
-      get { if ((_hasBits0 & 1) != 0) { return val_; } else { return ValDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        val_ = value;
-      }
-    }
-    /// <summary>Gets whether the "val" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "val" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarLong);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarLong other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Val != other.Val) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasVal) hash ^= Val.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
-        output.WriteRawTag(8);
-        output.WriteInt32(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasVal) {
-        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Val);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarLong other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasVal) {
-        Val = other.Val;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Val = input.ReadInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarDouble : pb::IMessage<NodeVarDouble> {
-    private static readonly pb::MessageParser<NodeVarDouble> _parser = new pb::MessageParser<NodeVarDouble>(() => new NodeVarDouble());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarDouble> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[8]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDouble() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDouble(NodeVarDouble other) : this() {
-      _hasBits0 = other._hasBits0;
-      val_ = other.val_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDouble Clone() {
-      return new NodeVarDouble(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static double ValDefaultValue = 0D;
-
-    private double val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Val {
-      get { if ((_hasBits0 & 1) != 0) { return val_; } else { return ValDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        val_ = value;
-      }
-    }
-    /// <summary>Gets whether the "val" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "val" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarDouble);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarDouble other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Val, other.Val)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasVal) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Val);
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
+      if (HasValue) {
         output.WriteRawTag(9);
-        output.WriteDouble(Val);
+        output.WriteDouble(Value);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1507,7 +895,7 @@ namespace Common {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (HasVal) {
+      if (HasValue) {
         size += 1 + 8;
       }
       if (_unknownFields != null) {
@@ -1517,12 +905,12 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarDouble other) {
+    public void MergeFrom(NVarP other) {
       if (other == null) {
         return;
       }
-      if (other.HasVal) {
-        Val = other.Val;
+      if (other.HasValue) {
+        Value = other.Value;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1536,7 +924,7 @@ namespace Common {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 9: {
-            Val = input.ReadDouble();
+            Value = input.ReadDouble();
             break;
           }
         }
@@ -1545,16 +933,15 @@ namespace Common {
 
   }
 
-  public sealed partial class NodeVarBool : pb::IMessage<NodeVarBool> {
-    private static readonly pb::MessageParser<NodeVarBool> _parser = new pb::MessageParser<NodeVarBool>(() => new NodeVarBool());
+  public sealed partial class NGroupP : pb::IMessage<NGroupP> {
+    private static readonly pb::MessageParser<NGroupP> _parser = new pb::MessageParser<NGroupP>(() => new NGroupP());
     private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarBool> Parser { get { return _parser; } }
+    public static pb::MessageParser<NGroupP> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[9]; }
+      get { return global::Codecs.Proto.CSharpSerializationBenchReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1563,69 +950,55 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBool() {
+    public NGroupP() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBool(NodeVarBool other) : this() {
-      _hasBits0 = other._hasBits0;
-      val_ = other.val_;
+    public NGroupP(NGroupP other) : this() {
+      group_ = other.group_ != null ? other.group_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBool Clone() {
-      return new NodeVarBool(this);
+    public NGroupP Clone() {
+      return new NGroupP(this);
     }
 
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static bool ValDefaultValue = false;
-
-    private bool val_;
+    /// <summary>Field number for the "group" field.</summary>
+    public const int GroupFieldNumber = 1;
+    private global::Codecs.Proto.NodeGroupP group_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Val {
-      get { if ((_hasBits0 & 1) != 0) { return val_; } else { return ValDefaultValue; } }
+    public global::Codecs.Proto.NodeGroupP Group {
+      get { return group_; }
       set {
-        _hasBits0 |= 1;
-        val_ = value;
+        group_ = value;
       }
-    }
-    /// <summary>Gets whether the "val" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "val" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
-      _hasBits0 &= ~1;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as NodeVarBool);
+      return Equals(other as NGroupP);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarBool other) {
+    public bool Equals(NGroupP other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Val != other.Val) return false;
+      if (!object.Equals(Group, other.Group)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (HasVal) hash ^= Val.GetHashCode();
+      if (group_ != null) hash ^= Group.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1639,631 +1012,9 @@ namespace Common {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
-        output.WriteRawTag(8);
-        output.WriteBool(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasVal) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarBool other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasVal) {
-        Val = other.Val;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Val = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarDateTime : pb::IMessage<NodeVarDateTime> {
-    private static readonly pb::MessageParser<NodeVarDateTime> _parser = new pb::MessageParser<NodeVarDateTime>(() => new NodeVarDateTime());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarDateTime> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[10]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDateTime() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDateTime(NodeVarDateTime other) : this() {
-      _hasBits0 = other._hasBits0;
-      val_ = other.val_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarDateTime Clone() {
-      return new NodeVarDateTime(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private readonly static uint ValDefaultValue = 0;
-
-    private uint val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Val {
-      get { if ((_hasBits0 & 1) != 0) { return val_; } else { return ValDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        val_ = value;
-      }
-    }
-    /// <summary>Gets whether the "val" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVal {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "val" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVal() {
-      _hasBits0 &= ~1;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarDateTime);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarDateTime other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Val != other.Val) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasVal) hash ^= Val.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasVal) {
-        output.WriteRawTag(8);
-        output.WriteUInt32(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasVal) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Val);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarDateTime other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasVal) {
-        Val = other.Val;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Val = input.ReadUInt32();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class BinaryInfo : pb::IMessage<BinaryInfo> {
-    private static readonly pb::MessageParser<BinaryInfo> _parser = new pb::MessageParser<BinaryInfo>(() => new BinaryInfo());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<BinaryInfo> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[11]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BinaryInfo() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BinaryInfo(BinaryInfo other) : this() {
-      _hasBits0 = other._hasBits0;
-      id_ = other.id_;
-      ver_ = other.ver_;
-      loc_ = other.loc_;
-      name_ = other.name_;
-      sha256_ = other.sha256_;
-      delayedDownload_ = other.delayedDownload_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public BinaryInfo Clone() {
-      return new BinaryInfo(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private readonly static ulong IdDefaultValue = 0UL;
-
-    private ulong id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong Id {
-      get { if ((_hasBits0 & 1) != 0) { return id_; } else { return IdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        id_ = value;
-      }
-    }
-    /// <summary>Gets whether the "id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearId() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "ver" field.</summary>
-    public const int VerFieldNumber = 2;
-    private readonly static uint VerDefaultValue = 0;
-
-    private uint ver_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public uint Ver {
-      get { if ((_hasBits0 & 2) != 0) { return ver_; } else { return VerDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        ver_ = value;
-      }
-    }
-    /// <summary>Gets whether the "ver" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasVer {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "ver" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVer() {
-      _hasBits0 &= ~2;
-    }
-
-    /// <summary>Field number for the "loc" field.</summary>
-    public const int LocFieldNumber = 3;
-    private readonly static string LocDefaultValue = "";
-
-    private string loc_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Loc {
-      get { return loc_ ?? LocDefaultValue; }
-      set {
-        loc_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "loc" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasLoc {
-      get { return loc_ != null; }
-    }
-    /// <summary>Clears the value of the "loc" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearLoc() {
-      loc_ = null;
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 4;
-    private readonly static string NameDefaultValue = "";
-
-    private string name_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_ ?? NameDefaultValue; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "name" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasName {
-      get { return name_ != null; }
-    }
-    /// <summary>Clears the value of the "name" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearName() {
-      name_ = null;
-    }
-
-    /// <summary>Field number for the "sha256" field.</summary>
-    public const int Sha256FieldNumber = 5;
-    private readonly static pb::ByteString Sha256DefaultValue = pb::ByteString.Empty;
-
-    private pb::ByteString sha256_;
-    /// <summary>
-    /// 32 bytes should be
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pb::ByteString Sha256 {
-      get { return sha256_ ?? Sha256DefaultValue; }
-      set {
-        sha256_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-    /// <summary>Gets whether the "sha256" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasSha256 {
-      get { return sha256_ != null; }
-    }
-    /// <summary>Clears the value of the "sha256" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearSha256() {
-      sha256_ = null;
-    }
-
-    /// <summary>Field number for the "delayedDownload" field.</summary>
-    public const int DelayedDownloadFieldNumber = 6;
-    private readonly static bool DelayedDownloadDefaultValue = false;
-
-    private bool delayedDownload_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool DelayedDownload {
-      get { if ((_hasBits0 & 4) != 0) { return delayedDownload_; } else { return DelayedDownloadDefaultValue; } }
-      set {
-        _hasBits0 |= 4;
-        delayedDownload_ = value;
-      }
-    }
-    /// <summary>Gets whether the "delayedDownload" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasDelayedDownload {
-      get { return (_hasBits0 & 4) != 0; }
-    }
-    /// <summary>Clears the value of the "delayedDownload" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearDelayedDownload() {
-      _hasBits0 &= ~4;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as BinaryInfo);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(BinaryInfo other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      if (Ver != other.Ver) return false;
-      if (Loc != other.Loc) return false;
-      if (Name != other.Name) return false;
-      if (Sha256 != other.Sha256) return false;
-      if (DelayedDownload != other.DelayedDownload) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasId) hash ^= Id.GetHashCode();
-      if (HasVer) hash ^= Ver.GetHashCode();
-      if (HasLoc) hash ^= Loc.GetHashCode();
-      if (HasName) hash ^= Name.GetHashCode();
-      if (HasSha256) hash ^= Sha256.GetHashCode();
-      if (HasDelayedDownload) hash ^= DelayedDownload.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasId) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(Id);
-      }
-      if (HasVer) {
-        output.WriteRawTag(16);
-        output.WriteUInt32(Ver);
-      }
-      if (HasLoc) {
-        output.WriteRawTag(26);
-        output.WriteString(Loc);
-      }
-      if (HasName) {
-        output.WriteRawTag(34);
-        output.WriteString(Name);
-      }
-      if (HasSha256) {
-        output.WriteRawTag(42);
-        output.WriteBytes(Sha256);
-      }
-      if (HasDelayedDownload) {
-        output.WriteRawTag(48);
-        output.WriteBool(DelayedDownload);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Id);
-      }
-      if (HasVer) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt32Size(Ver);
-      }
-      if (HasLoc) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Loc);
-      }
-      if (HasName) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (HasSha256) {
-        size += 1 + pb::CodedOutputStream.ComputeBytesSize(Sha256);
-      }
-      if (HasDelayedDownload) {
-        size += 1 + 1;
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(BinaryInfo other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasId) {
-        Id = other.Id;
-      }
-      if (other.HasVer) {
-        Ver = other.Ver;
-      }
-      if (other.HasLoc) {
-        Loc = other.Loc;
-      }
-      if (other.HasName) {
-        Name = other.Name;
-      }
-      if (other.HasSha256) {
-        Sha256 = other.Sha256;
-      }
-      if (other.HasDelayedDownload) {
-        DelayedDownload = other.DelayedDownload;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Id = input.ReadUInt64();
-            break;
-          }
-          case 16: {
-            Ver = input.ReadUInt32();
-            break;
-          }
-          case 26: {
-            Loc = input.ReadString();
-            break;
-          }
-          case 34: {
-            Name = input.ReadString();
-            break;
-          }
-          case 42: {
-            Sha256 = input.ReadBytes();
-            break;
-          }
-          case 48: {
-            DelayedDownload = input.ReadBool();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarBinary : pb::IMessage<NodeVarBinary> {
-    private static readonly pb::MessageParser<NodeVarBinary> _parser = new pb::MessageParser<NodeVarBinary>(() => new NodeVarBinary());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarBinary> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[12]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBinary() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBinary(NodeVarBinary other) : this() {
-      val_ = other.val_ != null ? other.val_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarBinary Clone() {
-      return new NodeVarBinary(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private global::Common.BinaryInfo val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.BinaryInfo Val {
-      get { return val_; }
-      set {
-        val_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarBinary);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarBinary other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Val, other.Val)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (val_ != null) hash ^= Val.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (val_ != null) {
+      if (group_ != null) {
         output.WriteRawTag(10);
-        output.WriteMessage(Val);
+        output.WriteMessage(Group);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2273,8 +1024,8 @@ namespace Common {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (val_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Val);
+      if (group_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Group);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2283,15 +1034,15 @@ namespace Common {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarBinary other) {
+    public void MergeFrom(NGroupP other) {
       if (other == null) {
         return;
       }
-      if (other.val_ != null) {
-        if (val_ == null) {
-          Val = new global::Common.BinaryInfo();
+      if (other.group_ != null) {
+        if (group_ == null) {
+          Group = new global::Codecs.Proto.NodeGroupP();
         }
-        Val.MergeFrom(other.Val);
+        Group.MergeFrom(other.Group);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2305,771 +1056,10 @@ namespace Common {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            if (val_ == null) {
-              Val = new global::Common.BinaryInfo();
+            if (group_ == null) {
+              Group = new global::Codecs.Proto.NodeGroupP();
             }
-            input.ReadMessage(Val);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class FlowID : pb::IMessage<FlowID> {
-    private static readonly pb::MessageParser<FlowID> _parser = new pb::MessageParser<FlowID>(() => new FlowID());
-    private pb::UnknownFieldSet _unknownFields;
-    private int _hasBits0;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<FlowID> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[13]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FlowID() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FlowID(FlowID other) : this() {
-      _hasBits0 = other._hasBits0;
-      id_ = other.id_;
-      app_ = other.app_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public FlowID Clone() {
-      return new FlowID(this);
-    }
-
-    /// <summary>Field number for the "id" field.</summary>
-    public const int IdFieldNumber = 1;
-    private readonly static ulong IdDefaultValue = 0UL;
-
-    private ulong id_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong Id {
-      get { if ((_hasBits0 & 1) != 0) { return id_; } else { return IdDefaultValue; } }
-      set {
-        _hasBits0 |= 1;
-        id_ = value;
-      }
-    }
-    /// <summary>Gets whether the "id" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasId {
-      get { return (_hasBits0 & 1) != 0; }
-    }
-    /// <summary>Clears the value of the "id" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearId() {
-      _hasBits0 &= ~1;
-    }
-
-    /// <summary>Field number for the "app" field.</summary>
-    public const int AppFieldNumber = 2;
-    private readonly static long AppDefaultValue = 0L;
-
-    private long app_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long App {
-      get { if ((_hasBits0 & 2) != 0) { return app_; } else { return AppDefaultValue; } }
-      set {
-        _hasBits0 |= 2;
-        app_ = value;
-      }
-    }
-    /// <summary>Gets whether the "app" field is set</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool HasApp {
-      get { return (_hasBits0 & 2) != 0; }
-    }
-    /// <summary>Clears the value of the "app" field</summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearApp() {
-      _hasBits0 &= ~2;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as FlowID);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(FlowID other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (Id != other.Id) return false;
-      if (App != other.App) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (HasId) hash ^= Id.GetHashCode();
-      if (HasApp) hash ^= App.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (HasId) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(Id);
-      }
-      if (HasApp) {
-        output.WriteRawTag(16);
-        output.WriteInt64(App);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (HasId) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Id);
-      }
-      if (HasApp) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(App);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(FlowID other) {
-      if (other == null) {
-        return;
-      }
-      if (other.HasId) {
-        Id = other.Id;
-      }
-      if (other.HasApp) {
-        App = other.App;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            Id = input.ReadUInt64();
-            break;
-          }
-          case 16: {
-            App = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVarFlow : pb::IMessage<NodeVarFlow> {
-    private static readonly pb::MessageParser<NodeVarFlow> _parser = new pb::MessageParser<NodeVarFlow>(() => new NodeVarFlow());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVarFlow> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[14]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarFlow() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarFlow(NodeVarFlow other) : this() {
-      val_ = other.val_ != null ? other.val_.Clone() : null;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVarFlow Clone() {
-      return new NodeVarFlow(this);
-    }
-
-    /// <summary>Field number for the "val" field.</summary>
-    public const int ValFieldNumber = 1;
-    private global::Common.FlowID val_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.FlowID Val {
-      get { return val_; }
-      set {
-        val_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVarFlow);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVarFlow other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Val, other.Val)) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (val_ != null) hash ^= Val.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (val_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Val);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (val_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Val);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVarFlow other) {
-      if (other == null) {
-        return;
-      }
-      if (other.val_ != null) {
-        if (val_ == null) {
-          Val = new global::Common.FlowID();
-        }
-        Val.MergeFrom(other.Val);
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            if (val_ == null) {
-              Val = new global::Common.FlowID();
-            }
-            input.ReadMessage(Val);
-            break;
-          }
-        }
-      }
-    }
-
-  }
-
-  public sealed partial class NodeVar : pb::IMessage<NodeVar> {
-    private static readonly pb::MessageParser<NodeVar> _parser = new pb::MessageParser<NodeVar>(() => new NodeVar());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<NodeVar> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::Common.CSharpSerializationBenchReflection.Descriptor.MessageTypes[15]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVar() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVar(NodeVar other) : this() {
-      switch (other.VarCase) {
-        case VarOneofCase.Ni:
-          Ni = other.Ni.Clone();
-          break;
-        case VarOneofCase.Nl:
-          Nl = other.Nl.Clone();
-          break;
-        case VarOneofCase.Nd:
-          Nd = other.Nd.Clone();
-          break;
-        case VarOneofCase.Nb:
-          Nb = other.Nb.Clone();
-          break;
-        case VarOneofCase.Ns:
-          Ns = other.Ns.Clone();
-          break;
-        case VarOneofCase.Ndt:
-          Ndt = other.Ndt.Clone();
-          break;
-        case VarOneofCase.Nbin:
-          Nbin = other.Nbin.Clone();
-          break;
-        case VarOneofCase.Nf:
-          Nf = other.Nf.Clone();
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public NodeVar Clone() {
-      return new NodeVar(this);
-    }
-
-    /// <summary>Field number for the "ni" field.</summary>
-    public const int NiFieldNumber = 2;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarInt Ni {
-      get { return varCase_ == VarOneofCase.Ni ? (global::Common.NodeVarInt) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Ni;
-      }
-    }
-
-    /// <summary>Field number for the "nl" field.</summary>
-    public const int NlFieldNumber = 3;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarLong Nl {
-      get { return varCase_ == VarOneofCase.Nl ? (global::Common.NodeVarLong) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Nl;
-      }
-    }
-
-    /// <summary>Field number for the "nd" field.</summary>
-    public const int NdFieldNumber = 4;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarDouble Nd {
-      get { return varCase_ == VarOneofCase.Nd ? (global::Common.NodeVarDouble) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Nd;
-      }
-    }
-
-    /// <summary>Field number for the "nb" field.</summary>
-    public const int NbFieldNumber = 5;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarBool Nb {
-      get { return varCase_ == VarOneofCase.Nb ? (global::Common.NodeVarBool) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Nb;
-      }
-    }
-
-    /// <summary>Field number for the "ns" field.</summary>
-    public const int NsFieldNumber = 1;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarString Ns {
-      get { return varCase_ == VarOneofCase.Ns ? (global::Common.NodeVarString) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Ns;
-      }
-    }
-
-    /// <summary>Field number for the "ndt" field.</summary>
-    public const int NdtFieldNumber = 6;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarDateTime Ndt {
-      get { return varCase_ == VarOneofCase.Ndt ? (global::Common.NodeVarDateTime) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Ndt;
-      }
-    }
-
-    /// <summary>Field number for the "nbin" field.</summary>
-    public const int NbinFieldNumber = 7;
-    /// <summary>
-    /// Extended types
-    /// </summary>
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarBinary Nbin {
-      get { return varCase_ == VarOneofCase.Nbin ? (global::Common.NodeVarBinary) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Nbin;
-      }
-    }
-
-    /// <summary>Field number for the "nf" field.</summary>
-    public const int NfFieldNumber = 8;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Common.NodeVarFlow Nf {
-      get { return varCase_ == VarOneofCase.Nf ? (global::Common.NodeVarFlow) var_ : null; }
-      set {
-        var_ = value;
-        varCase_ = value == null ? VarOneofCase.None : VarOneofCase.Nf;
-      }
-    }
-
-    private object var_;
-    /// <summary>Enum of possible cases for the "var" oneof.</summary>
-    public enum VarOneofCase {
-      None = 0,
-      Ni = 2,
-      Nl = 3,
-      Nd = 4,
-      Nb = 5,
-      Ns = 1,
-      Ndt = 6,
-      Nbin = 7,
-      Nf = 8,
-    }
-    private VarOneofCase varCase_ = VarOneofCase.None;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public VarOneofCase VarCase {
-      get { return varCase_; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void ClearVar() {
-      varCase_ = VarOneofCase.None;
-      var_ = null;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as NodeVar);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(NodeVar other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (!object.Equals(Ni, other.Ni)) return false;
-      if (!object.Equals(Nl, other.Nl)) return false;
-      if (!object.Equals(Nd, other.Nd)) return false;
-      if (!object.Equals(Nb, other.Nb)) return false;
-      if (!object.Equals(Ns, other.Ns)) return false;
-      if (!object.Equals(Ndt, other.Ndt)) return false;
-      if (!object.Equals(Nbin, other.Nbin)) return false;
-      if (!object.Equals(Nf, other.Nf)) return false;
-      if (VarCase != other.VarCase) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (varCase_ == VarOneofCase.Ni) hash ^= Ni.GetHashCode();
-      if (varCase_ == VarOneofCase.Nl) hash ^= Nl.GetHashCode();
-      if (varCase_ == VarOneofCase.Nd) hash ^= Nd.GetHashCode();
-      if (varCase_ == VarOneofCase.Nb) hash ^= Nb.GetHashCode();
-      if (varCase_ == VarOneofCase.Ns) hash ^= Ns.GetHashCode();
-      if (varCase_ == VarOneofCase.Ndt) hash ^= Ndt.GetHashCode();
-      if (varCase_ == VarOneofCase.Nbin) hash ^= Nbin.GetHashCode();
-      if (varCase_ == VarOneofCase.Nf) hash ^= Nf.GetHashCode();
-      hash ^= (int) varCase_;
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-      if (varCase_ == VarOneofCase.Ns) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Ns);
-      }
-      if (varCase_ == VarOneofCase.Ni) {
-        output.WriteRawTag(18);
-        output.WriteMessage(Ni);
-      }
-      if (varCase_ == VarOneofCase.Nl) {
-        output.WriteRawTag(26);
-        output.WriteMessage(Nl);
-      }
-      if (varCase_ == VarOneofCase.Nd) {
-        output.WriteRawTag(34);
-        output.WriteMessage(Nd);
-      }
-      if (varCase_ == VarOneofCase.Nb) {
-        output.WriteRawTag(42);
-        output.WriteMessage(Nb);
-      }
-      if (varCase_ == VarOneofCase.Ndt) {
-        output.WriteRawTag(50);
-        output.WriteMessage(Ndt);
-      }
-      if (varCase_ == VarOneofCase.Nbin) {
-        output.WriteRawTag(58);
-        output.WriteMessage(Nbin);
-      }
-      if (varCase_ == VarOneofCase.Nf) {
-        output.WriteRawTag(66);
-        output.WriteMessage(Nf);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (varCase_ == VarOneofCase.Ni) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ni);
-      }
-      if (varCase_ == VarOneofCase.Nl) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nl);
-      }
-      if (varCase_ == VarOneofCase.Nd) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nd);
-      }
-      if (varCase_ == VarOneofCase.Nb) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nb);
-      }
-      if (varCase_ == VarOneofCase.Ns) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ns);
-      }
-      if (varCase_ == VarOneofCase.Ndt) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Ndt);
-      }
-      if (varCase_ == VarOneofCase.Nbin) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nbin);
-      }
-      if (varCase_ == VarOneofCase.Nf) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Nf);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(NodeVar other) {
-      if (other == null) {
-        return;
-      }
-      switch (other.VarCase) {
-        case VarOneofCase.Ni:
-          if (Ni == null) {
-            Ni = new global::Common.NodeVarInt();
-          }
-          Ni.MergeFrom(other.Ni);
-          break;
-        case VarOneofCase.Nl:
-          if (Nl == null) {
-            Nl = new global::Common.NodeVarLong();
-          }
-          Nl.MergeFrom(other.Nl);
-          break;
-        case VarOneofCase.Nd:
-          if (Nd == null) {
-            Nd = new global::Common.NodeVarDouble();
-          }
-          Nd.MergeFrom(other.Nd);
-          break;
-        case VarOneofCase.Nb:
-          if (Nb == null) {
-            Nb = new global::Common.NodeVarBool();
-          }
-          Nb.MergeFrom(other.Nb);
-          break;
-        case VarOneofCase.Ns:
-          if (Ns == null) {
-            Ns = new global::Common.NodeVarString();
-          }
-          Ns.MergeFrom(other.Ns);
-          break;
-        case VarOneofCase.Ndt:
-          if (Ndt == null) {
-            Ndt = new global::Common.NodeVarDateTime();
-          }
-          Ndt.MergeFrom(other.Ndt);
-          break;
-        case VarOneofCase.Nbin:
-          if (Nbin == null) {
-            Nbin = new global::Common.NodeVarBinary();
-          }
-          Nbin.MergeFrom(other.Nbin);
-          break;
-        case VarOneofCase.Nf:
-          if (Nf == null) {
-            Nf = new global::Common.NodeVarFlow();
-          }
-          Nf.MergeFrom(other.Nf);
-          break;
-      }
-
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 10: {
-            global::Common.NodeVarString subBuilder = new global::Common.NodeVarString();
-            if (varCase_ == VarOneofCase.Ns) {
-              subBuilder.MergeFrom(Ns);
-            }
-            input.ReadMessage(subBuilder);
-            Ns = subBuilder;
-            break;
-          }
-          case 18: {
-            global::Common.NodeVarInt subBuilder = new global::Common.NodeVarInt();
-            if (varCase_ == VarOneofCase.Ni) {
-              subBuilder.MergeFrom(Ni);
-            }
-            input.ReadMessage(subBuilder);
-            Ni = subBuilder;
-            break;
-          }
-          case 26: {
-            global::Common.NodeVarLong subBuilder = new global::Common.NodeVarLong();
-            if (varCase_ == VarOneofCase.Nl) {
-              subBuilder.MergeFrom(Nl);
-            }
-            input.ReadMessage(subBuilder);
-            Nl = subBuilder;
-            break;
-          }
-          case 34: {
-            global::Common.NodeVarDouble subBuilder = new global::Common.NodeVarDouble();
-            if (varCase_ == VarOneofCase.Nd) {
-              subBuilder.MergeFrom(Nd);
-            }
-            input.ReadMessage(subBuilder);
-            Nd = subBuilder;
-            break;
-          }
-          case 42: {
-            global::Common.NodeVarBool subBuilder = new global::Common.NodeVarBool();
-            if (varCase_ == VarOneofCase.Nb) {
-              subBuilder.MergeFrom(Nb);
-            }
-            input.ReadMessage(subBuilder);
-            Nb = subBuilder;
-            break;
-          }
-          case 50: {
-            global::Common.NodeVarDateTime subBuilder = new global::Common.NodeVarDateTime();
-            if (varCase_ == VarOneofCase.Ndt) {
-              subBuilder.MergeFrom(Ndt);
-            }
-            input.ReadMessage(subBuilder);
-            Ndt = subBuilder;
-            break;
-          }
-          case 58: {
-            global::Common.NodeVarBinary subBuilder = new global::Common.NodeVarBinary();
-            if (varCase_ == VarOneofCase.Nbin) {
-              subBuilder.MergeFrom(Nbin);
-            }
-            input.ReadMessage(subBuilder);
-            Nbin = subBuilder;
-            break;
-          }
-          case 66: {
-            global::Common.NodeVarFlow subBuilder = new global::Common.NodeVarFlow();
-            if (varCase_ == VarOneofCase.Nf) {
-              subBuilder.MergeFrom(Nf);
-            }
-            input.ReadMessage(subBuilder);
-            Nf = subBuilder;
+            input.ReadMessage(Group);
             break;
           }
         }
