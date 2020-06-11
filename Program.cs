@@ -6,8 +6,8 @@ namespace c_sharp_serialization_bench
     {
         static void Main(string[] args)
         {
-            //BenchmarkRunner.Run<ProtobufSerializationBenchmark>();
-            BenchmarkRunner.Run<MsgpackSerializationBenchmark>();
+            BenchmarkRunner.Run<ProtobufSerializationBenchmark>();
+            //BenchmarkRunner.Run<MsgpackSerializationBenchmark>();
             //BenchmarkRunner.Run<BsonSerializationBenchmark>();
         }
     }

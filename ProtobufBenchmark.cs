@@ -11,33 +11,37 @@ namespace c_sharp_serialization_bench
     public class ProtobufSerializationBenchmark 
     {
         public NodeGroupP group;
-        public MemoryStream streamOut = new MemoryStream();
-        public MemoryStream outBuf = new MemoryStream();
+        // public MemoryStream streamOut = new MemoryStream();
+        // public MemoryStream outBuf = new MemoryStream();
+
+        public byte[] encodedData;
 
         [GlobalSetup]
         public void GlobalSetup()
         {
            group = ProtobufUtils.RandomData(1000, 6);
-           group.WriteTo(streamOut);
+           encodedData = group.ToByteArray();
+           GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);
         }
 
-        [GlobalCleanup]
-        public void Cleanup()
-        {
-            outBuf.Seek(0, SeekOrigin.Begin);
-        }
+        // [GlobalCleanup]
+        // public void Cleanup()
+        // {
+        //     //outBuf.Seek(0, SeekOrigin.Begin);
+        // }
 
 
         [Benchmark]
-        public MemoryStream encodeData() {
-            MemoryStream outBuf = new MemoryStream();
-            group.WriteTo(outBuf);
-            return outBuf;
+        public byte[] encodeData() {
+            // MemoryStream outBuf = new MemoryStream();
+            // group.WriteTo(outBuf);
+            // return outBuf;
+            return group.ToByteArray();
         }
 
         [Benchmark]
         public NodeGroupP decodeData() {
-            return NodeGroupP.Parser.ParseFrom(streamOut);
+            return NodeGroupP.Parser.ParseFrom(encodedData);
         }
     }
 
