@@ -7,18 +7,16 @@ namespace c_sharp_serialization_bench
     public static class UtilsCommon
     {
         public static int DefaultMapSize = 5;
-        public static int DefaultChildNodesAmount = 3;
+        public static int DefaultChildNodesAmount = 2;
         public static int DefaultStrLen = 10;
+        private static Random random = new Random();  
 
         public static string RandomString(int size, bool lowerCase = false)  
         {  
             StringBuilder builder = new StringBuilder();  
-            Random random = new Random();  
-            char ch;  
             for (int i = 0; i < size; i++)  
             {  
-                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));  
-                builder.Append(ch);  
+                builder.Append(Convert.ToChar(26 + random.Next() % 60));  
             }  
             if (lowerCase)  
                 return builder.ToString().ToLower();  
@@ -37,22 +35,20 @@ namespace c_sharp_serialization_bench
 
         public static NodeBase RandomNodeBase()
         {
-            var rnd = new Random();
-            var rndBool = rnd.NextDouble() >= 0.5;
+            var rndBool = random.NextDouble() >= 0.5;
             var rndStr = RandomString(DefaultStrLen);
             return new NodeBase(rndBool, rndStr, rndStr, RandomMeta());
         }
 
         public static Node RandomChildren(int depth)
         {
-            var rnd = new Random();
             if (depth == 0)
             {
-                return new NVar(rnd.NextDouble());
+                return new NVar(random.NextDouble());
             } 
             else
             {
-                var nBase = RandomNodeBase();
+                //var nBase = RandomNodeBase();
                 var lst = new List<Node>(DefaultChildNodesAmount);
                 for (int i = 0; i < DefaultChildNodesAmount; ++ i)
                 {

@@ -6,6 +6,8 @@ namespace c_sharp_serialization_bench
 {
     public static class ProtobufUtils 
     {
+        private static Random rnd = new Random();
+
         public static NodeMetaP RandomMeta(int size)
         {
             var meta = new NodeMetaP();
@@ -18,7 +20,6 @@ namespace c_sharp_serialization_bench
 
         public static NodeBaseP RandomNodeBase()
         {
-            var rnd = new Random();
             var nodeBase = new NodeBaseP();
             nodeBase.Hidden = rnd.NextDouble() >= 0.5;
             nodeBase.Id = UtilsCommon.RandomString(UtilsCommon.DefaultStrLen);
@@ -30,7 +31,6 @@ namespace c_sharp_serialization_bench
         public static NodeP RandomChildren(int depth)
         {
             var node = new NodeP();
-            var rnd = new Random();
             if (depth == 0)
             {
                 NVarP nodeVar = new NVarP();

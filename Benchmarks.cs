@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
@@ -20,24 +21,34 @@ namespace c_sharp_serialization_bench
         public List<NodeGroupP> pbData = new List<NodeGroupP>();
 
         private long idx = 0;
-        private int samples = 1000;
+        private int samples = 2;
+        private int depth = 5;
+        private int topcount = 500;
 
+        private JsonSerializerSettings _settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.Auto
+        };
+        
         [GlobalSetup]
         public void Setup()
         {
-            foreach (var index in Enumerable.Range(0, samples))
+        foreach (var index in Enumerable.Range(0, samples))
             {
-                var d = UtilsCommon.RandomData(1000, 6);
-                data.Append(d);
+                Console.Out.WriteLine($"prep: {index}");
+                var d = UtilsCommon.RandomData(topcount, depth);
+                data.Insert(0, d);
                 
-                encodedBsonData.Append(DoBsonEncodeData(d));
-                encodedMsgPackData.Append(DoMsgPackEncodeData(d));
-                encodedJsonData.Append(DoJsonEncodeData(d));
+                encodedBsonData.Insert(0,DoBsonEncodeData(d));
+                encodedMsgPackData.Insert(0,DoMsgPackEncodeData(d));
+                encodedJsonData.Insert(0,DoJsonEncodeData(d));
                 
-                var pbd = ProtobufUtils.RandomData(1000, 6);
-                pbData.Append(pbd);
-                encodedPbData.Append(pbd.ToByteArray());
+                var pbd = ProtobufUtils.RandomData(topcount, depth);
+                pbData.Insert(0, pbd);
+                encodedPbData.Insert(0,pbd.ToByteArray());
             }
+            Console.Out.WriteLine("Prep done");
+
             GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);            
         }
 
@@ -47,8 +58,8 @@ namespace c_sharp_serialization_bench
             var cidx = (int) ((idx++) % samples);
             return pbData[cidx].ToByteArray();
         }
-
-
+        
+        
         [Benchmark]
         public NodeGroupP pbDecode()
         {
@@ -62,36 +73,36 @@ namespace c_sharp_serialization_bench
             var cidx = (int) ((idx++) % samples);
             return DoBsonEncodeData(data[cidx]);
         }
-
-
+        
+        
         [Benchmark]
         public NodeGroup bsonDecode()
         {
             var cidx = (int) ((idx++) % samples);
             return DoBsonDecodeData(encodedBsonData[cidx]);
         }
-
+        
         [Benchmark]
         public byte[] jsonEncode()
         {
             var cidx = (int) ((idx++) % samples);
             return DoJsonEncodeData(data[cidx]);
         }
-
+        
         [Benchmark]
         public NodeGroup jsonDecode()
         {
             var cidx = (int) ((idx++) % samples);
             return DoJsonDecodeData(encodedJsonData[cidx]);
         }
-
+        
         [Benchmark]
         public byte[] msgPackEncode()
         {
             var cidx = (int) ((idx++) % samples);
             return DoMsgPackEncodeData(data[cidx]);
         }
-
+        
         [Benchmark]
         public NodeGroup msgPackDecode()
         {
@@ -106,7 +117,7 @@ namespace c_sharp_serialization_bench
             using (BsonReader reader = new BsonReader(ms))
             {
                 JsonSerializer serializer = new JsonSerializer();
-
+                serializer.TypeNameHandling = TypeNameHandling.Auto;
                 return serializer.Deserialize<NodeGroup>(reader);
             }
         }
@@ -117,6 +128,7 @@ namespace c_sharp_serialization_bench
             using (BsonWriter writer = new BsonWriter(ms))
             {
                 JsonSerializer serializer = new JsonSerializer();
+                serializer.TypeNameHandling = TypeNameHandling.Auto;
                 serializer.Serialize(writer, data);
             }
 
@@ -130,7 +142,7 @@ namespace c_sharp_serialization_bench
             using (JsonReader reader = new JsonTextReader(sr))
             {
                 JsonSerializer serializer = new JsonSerializer();
-
+                serializer.TypeNameHandling = TypeNameHandling.Auto;
                 return serializer.Deserialize<NodeGroup>(reader);
             }
         }
@@ -143,6 +155,7 @@ namespace c_sharp_serialization_bench
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
                 JsonSerializer serializer = new JsonSerializer();
+                serializer.TypeNameHandling = TypeNameHandling.Auto;
                 serializer.Serialize(writer, data);
             }
 

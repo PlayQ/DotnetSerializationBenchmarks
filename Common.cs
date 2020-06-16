@@ -71,13 +71,13 @@ namespace c_sharp_serialization_bench
     [MessagePackObject]
     public sealed class NodeGroup
     {
+        [JsonConstructor]
         public NodeGroup(NodeBase nodeBase, List<Node> nodes)
         {
             Base = nodeBase;
             Nodes = nodes;
         }
 
-        [JsonConstructor]
         public NodeGroup(NodeGroup other)
         {
             Base = other.Base;
