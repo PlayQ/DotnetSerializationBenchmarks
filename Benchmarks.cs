@@ -16,6 +16,7 @@ namespace c_sharp_serialization_bench
     public class BsonSerializationBenchmark
     {
         public List<byte[]> encodedBsonData = new List<byte[]>();
+        public List<byte[]> encodedMongoBsonData = new List<byte[]>();
         public List<byte[]> encodedJsonData = new List<byte[]>();
         public List<byte[]> encodedMsgPackData = new List<byte[]>();
         public List<byte[]> encodedPbData = new List<byte[]>();
@@ -23,7 +24,7 @@ namespace c_sharp_serialization_bench
         public List<NodeGroupP> pbData = new List<NodeGroupP>();
 
         private long idx = 0;
-        private int samples = 2;
+        private int samples = 50;
         private int depth = 5;
         private int topcount = 500;
 
@@ -42,6 +43,7 @@ namespace c_sharp_serialization_bench
                 data.Insert(0, d);
                 
                 encodedBsonData.Insert(0,DoBsonEncodeData(d));
+                encodedMongoBsonData.Insert(0,DoBsonMongoEncodeData(d));
                 encodedMsgPackData.Insert(0,DoMsgPackEncodeData(d));
                 encodedJsonData.Insert(0,DoJsonEncodeData(d));
                 
@@ -58,14 +60,19 @@ namespace c_sharp_serialization_bench
         public byte[] bsonMongoEncodeData()
         {
             var cidx = (int) ((idx++) % samples);
-            return data[cidx].ToBson();
+            return DoBsonMongoEncodeData(data[cidx]);
+        }
+
+        private byte[] DoBsonMongoEncodeData(NodeGroup d)
+        {
+            return d.ToBson();
         }
 
         [Benchmark]
         public NodeGroup bsonMongoDecodeData()
         {
             var cidx = (int) ((idx++) % samples);
-            return BsonSerializer.Deserialize<NodeGroup>(encodedBsonData[cidx]);
+            return BsonSerializer.Deserialize<NodeGroup>(encodedMongoBsonData[cidx]);
         }
         
         [Benchmark]
