@@ -6,7 +6,7 @@ namespace c_sharp_serialization_bench
     {
         static void Main(string[] args)
         {
-             BenchmarkRunner.Run<BsonSerializationBenchmark>();
+             BenchmarkRunner.Run<SerializationBenchmark>();
         }
     }
 }

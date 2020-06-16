@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using MessagePack;
 using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
-
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace c_sharp_serialization_bench
 {

@@ -10,12 +10,14 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
+using MongoDB.Bson.Serialization;
 
 namespace c_sharp_serialization_bench
 {
-    public class BsonSerializationBenchmark
+    public class SerializationBenchmark
     {
         public List<byte[]> encodedBsonData = new List<byte[]>();
+        public List<byte[]> encodedBsonDataMongoDriver = new List<byte[]>();
         public List<byte[]> encodedJsonData = new List<byte[]>();
         public List<byte[]> encodedMsgPackData = new List<byte[]>();
         public List<byte[]> encodedPbData = new List<byte[]>();
@@ -42,6 +44,7 @@ namespace c_sharp_serialization_bench
                 data.Insert(0, d);
                 
                 encodedBsonData.Insert(0,DoBsonEncodeData(d));
+                encodedBsonDataMongoDriver.Insert(0, DoBsonEncodeDataMongoDriver(d));
                 encodedMsgPackData.Insert(0,DoMsgPackEncodeData(d));
                 encodedJsonData.Insert(0,DoJsonEncodeData(d));
                 
@@ -97,6 +100,20 @@ namespace c_sharp_serialization_bench
             var cidx = (int) ((idx++) % samples);
             return DoBsonDecodeData(encodedBsonData[cidx]);
         }
+
+        [Benchmark]
+        public byte[] bsonEncodeMogoDriver()
+        {
+            var cidx = (int) ((idx++) % samples);
+            return DoBsonEncodeDataMongoDriver(data[cidx]);
+        }
+
+        [Benchmark]
+        public NodeGroup bsonDecodeMongoDriver()
+        {
+            var cidx = (int) ((idx++) % samples);
+            return DoBsonDecodeDataMongoDriver(encodedBsonDataMongoDriver[cidx]);
+        }
         
         [Benchmark]
         public byte[] jsonEncode()
@@ -127,6 +144,25 @@ namespace c_sharp_serialization_bench
         }
 
         
+        private NodeGroup DoBsonDecodeDataMongoDriver(byte[] encodedData)
+        {
+            MemoryStream ms = new MemoryStream(encodedData);
+            using (var reader = new MongoDB.Bson.IO.BsonBinaryReader(ms))
+            {
+                return BsonSerializer.Deserialize<NodeGroup>(reader);
+            }
+        }
+
+        private byte[] DoBsonEncodeDataMongoDriver(NodeGroup data)
+        {
+            MemoryStream ms = new MemoryStream();
+            using (var writer = new MongoDB.Bson.IO.BsonBinaryWriter(ms))
+            {
+                BsonSerializer.Serialize(writer, data);
+            }
+            return ms.ToArray();
+        }
+
         private NodeGroup DoBsonDecodeData(byte[] encodedData)
         {
             MemoryStream ms = new MemoryStream(encodedData);
