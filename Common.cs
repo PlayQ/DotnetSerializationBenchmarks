@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using MessagePack;
+using MongoDB.Bson.Serialization.Attributes;
 using Newtonsoft.Json;
 
 
@@ -40,8 +41,8 @@ namespace c_sharp_serialization_bench
 
     [MessagePack.Union(0, typeof(NVar))]
     [MessagePack.Union(1, typeof(NGroup))]
-    // [BsonDiscriminator(Required = true, RootClass = true)]
-    // [BsonKnownTypes(typeof(NVar), typeof(NGroup))]
+    [BsonDiscriminator(Required = true, RootClass = true)]
+    [BsonKnownTypes(typeof(NVar), typeof(NGroup))]
     public abstract class Node {}
 
     [MessagePackObject]

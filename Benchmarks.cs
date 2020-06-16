@@ -6,6 +6,8 @@ using System.Linq;
 using BenchmarkDotNet.Attributes;
 using Codecs.Proto;
 using Google.Protobuf;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 
@@ -52,6 +54,20 @@ namespace c_sharp_serialization_bench
             GC.Collect(GC.MaxGeneration, GCCollectionMode.Forced);            
         }
 
+        [Benchmark]
+        public byte[] bsonMongoEncodeData()
+        {
+            var cidx = (int) ((idx++) % samples);
+            return data[cidx].ToBson();
+        }
+
+        [Benchmark]
+        public NodeGroup bsonMongoDecodeData()
+        {
+            var cidx = (int) ((idx++) % samples);
+            return BsonSerializer.Deserialize<NodeGroup>(encodedBsonData[cidx]);
+        }
+        
         [Benchmark]
         public byte[] pbEncode()
         {
