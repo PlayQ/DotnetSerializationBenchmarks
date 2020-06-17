@@ -10,7 +10,6 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
-using MongoDB.Bson.Serialization;
 
 namespace c_sharp_serialization_bench
 {
