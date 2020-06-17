@@ -25,7 +25,7 @@ namespace c_sharp_serialization_bench
 
         private long idx = 0;
         private int samples = 50;
-        private int depth = 5;
+        private int depth = 6;
         private int topcount = 500;
 
         private JsonSerializerSettings _settings = new JsonSerializerSettings
